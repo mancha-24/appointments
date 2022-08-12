@@ -32,7 +32,13 @@ function App() {
       <ul className='divide-y divide-gray-200'>
         {
           appointmentList.map(appointment => (
-              <AppointmentInfo key={appointment.Id} appointment={appointment}/>
+              <AppointmentInfo key={appointment.Id} 
+                               appointment={appointment}
+                               onDeleteAppointment={ 
+                                appointmentId =>
+                                  setAppointmentList(appointmentList.filter(appointment => 
+                                    appointment.id !== appointmentId))
+                               }/>
           ))
         }
       </ul>
