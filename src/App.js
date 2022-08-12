@@ -9,7 +9,7 @@ function App() {
   let [appointmentList, setAppointmentList] = useState([]);
   let [query, setQuery] = useState("");
   let [sortBy, setSortBy] = useState("petName");
-  let [orderBy, setorderBy] = useState("asc");
+  let [orderBy, setOrderBy] = useState("asc");
 
   const filteredAppointments = appointmentList.filter(
     item => {
@@ -47,7 +47,11 @@ function App() {
       </h1>
       <AddAppointment />
       <Search query={query} 
-              onQueryChange={myQuery => setQuery(myQuery)}/>
+              onQueryChange={myQuery => setQuery(myQuery)}
+              orderBy={orderBy}
+              onOrderByChange={myOrder => setOrderBy(myOrder)}
+              sortBy={sortBy} 
+              onSortByChange={mySort => setSortBy(mySort)}/>
 
       <ul className='divide-y divide-gray-200'>
         {
